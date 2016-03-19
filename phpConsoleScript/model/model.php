@@ -24,7 +24,7 @@ class model extends SQLite3 {
      * @param array $dbJobs
      * @param string $time
      */
-    public function insert(array $dbJobs, $time) {
+    public function insertIntoJob(array $dbJobs, $time) {
         foreach($dbJobs as $job) {
             $query = "INSERT INTO job (job_name, status, check_time) VALUES ('" . $job['job_name'] . "', '" . $job['status'] . "', '" . $time . "');";
             $this->exec($query);

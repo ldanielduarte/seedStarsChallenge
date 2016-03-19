@@ -33,6 +33,6 @@ if ($jenkinsApiAnswer) {
 
     if (isset($dbJobs)) {
         $db = new model();
-        $db->insert($dbJobs, $currentTime);
+        $db->insertIntoJob($dbJobs, $currentTime);
     }
 }
