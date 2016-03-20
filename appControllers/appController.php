@@ -14,10 +14,16 @@ class appController {
         $this->db = $model;
     }
 
+    /**
+     * Inserts a contact
+     *
+     * @param string $name
+     * @param string $email
+     */
     public function insertContact($name, $email) {
         $contact = array(
-            'name' => strip_tags($name),
-            'email' => strip_tags($email)
+            'name' => mysql_real_escape_string(strip_tags($name)),
+            'email' => mysql_real_escape_string(strip_tags($email))
         );
 
         $this->db->insertIntoContact($contact);

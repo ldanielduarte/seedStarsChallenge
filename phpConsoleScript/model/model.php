@@ -13,9 +13,9 @@ class model extends SQLite3 {
 
     public function __construct()
     {
-        $this->open('seedStarsChallenge.db');
+        $this->open('seedStarsChallenge');
         $this->exec('DROP TABLE IF EXISTS job');
-        $this->exec('CREATE TABLE job (id integer primary key autoincrement, job_name varchar, status varchar, check_time varchar)');
+        $this->exec('CREATE TABLE job (job_name varchar, status varchar, check_time varchar)');
     }
 
     /**

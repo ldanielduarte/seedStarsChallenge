@@ -1,0 +1,15 @@
+PROBLEMS
+--------
+
+#1 - When creating a new sqlite database we have to manually make sure that it has the right permissions.
+#2 - Concatenating query gives a litle margin for sql injection even using mysql_real_escape_string().
+#3 - Due to several external setbacks last commit was made after the time limit.
+
+
+SOLUTIONS
+---------
+
+#1 - CSRF filter was done with resource to a session variable.
+#2 - XSS filter was done with resource to strip_tags().
+#3 - SQL Injection filter was done with resource to mysql_real_escape_string().
+#4 - MVC Design pattern used in the App.

@@ -14,7 +14,7 @@ class appModel extends SQLite3 {
     public function __construct()
     {
         $this->open('seedStarsAppChallenge.db');
-        $this->exec('CREATE TABLE IF NOT EXISTS contact (id integer primary key autoincrement, contact_name varchar, contact_email varchar)');
+        $this->exec('CREATE TABLE IF NOT EXISTS contact (contact_name varchar, contact_email varchar)');
     }
 
     /**
@@ -24,7 +24,7 @@ class appModel extends SQLite3 {
      */
     public function insertIntoContact(array $contact) {
         $query = "INSERT INTO contact (contact_name, contact_email) VALUES ('" . $contact['name'] . "', '" . $contact['email'] . "');";
-        $this->prepare($query);
+        $this->prepare($query)->execute();
     }
 
     /**
@@ -33,11 +33,14 @@ class appModel extends SQLite3 {
      * @return array
      */
     public function listContacts() {
+        $rows = array();
         $query = 'SELECT * FROM contact';
         $results = $this->query($query);
         while ($row = $results->fetchArray()) {
-            var_dump($row);
+            $rows[] = $row;
         }
+
+        return $rows;
     }
 
 }
