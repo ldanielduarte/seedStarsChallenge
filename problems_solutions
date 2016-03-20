@@ -4,6 +4,7 @@ PROBLEMS
 #1 - When creating a new sqlite database we have to manually make sure that it has the right permissions.
 #2 - Concatenating query gives a litle margin for sql injection even using mysql_real_escape_string().
 #3 - Due to several external setbacks last commit was made after the time limit.
+#4 - url rewritting was not taken in consideration.
 
 
 SOLUTIONS
